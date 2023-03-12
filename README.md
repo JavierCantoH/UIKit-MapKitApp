@@ -20,48 +20,6 @@ To get started with the UIKit-MapKitApp, simply clone this repository and open t
 
 To use the UIKit-MapKitApp in your own iOS app, simply copy the necessary files and APIs to your project and modify the code to fit your needs. The project is designed to be modular and customizable, so you can easily add or remove features as needed. 📝🎨
 
-```swift
-import UIKit
-import MapKit
+## Credits 🙌
 
-class ViewController: UIViewController {
-
-  @IBOutlet weak var mapView: MKMapView!
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Set up the map view
-    mapView.delegate = self
-    mapView.showsUserLocation = true
-    // Add a pin to the map
-    let coordinate = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
-    let annotation = MKPointAnnotation()
-    annotation.coordinate = coordinate
-    mapView.addAnnotation(annotation)
-    // Zoom the map to the pin
-    let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
-    mapView.setRegion(region, animated: true)
-  }
-
-}
-
-extension ViewController: MKMapViewDelegate {
-
-  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    // Configure the pin view
-    let identifier = "PinView"
-    var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-    if annotationView == nil {
-      annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-    } else {
-      annotationView?.annotation = annotation
-    }
-    return annotationView
-  }
-
-}
-```
-
-Credits 🙌
-
-The UIKit-MapKitApp was created by Javier Canto as a simple example of how to use MapKit in an iOS app.
+The UIKit-MapKitApp was created by [Javier Canto](https://github.com/JavierCantoH) as a simple example of how to use MapKit in an iOS app.
